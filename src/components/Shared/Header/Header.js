@@ -1,8 +1,29 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import Logo from '../../../logo.png';
+import { AuthContext } from '../Context/AuthProvider/AuthProvider';
 
 const Header = () => {
+
+  const {
+
+    user,
+    userSignOut
+
+  } = useContext(AuthContext);
+
+  const handleSignOut = () => {
+    userSignOut()
+      .then(() => {
+
+      })
+      .catch(error => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorCode, errorMessage);
+      })
+  }
+
   return (
     <div className='m-3'>
       <div className="navbar bg-base-100">
@@ -13,17 +34,7 @@ const Header = () => {
             </label>
             <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
               <li><Link to='/home'>Home</Link></li>
-              <li tabIndex={0}>
-                <Link> className="justify-between"
-                  Parent
-                  <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
-                </Link>
-                <ul className="p-2">
-                  <li><Link>Submenu 1</Link></li>
-                  <li><Link>Submenu 2</Link></li>
-                </ul>
-              </li>
-              <li><Link>Item 3</Link></li>
+              <li><Link to='/services'>Services</Link></li>
             </ul>
           </div>
           <Link className="btn btn-ghost" to='/home'>
@@ -36,21 +47,56 @@ const Header = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal p-0">
             <li className='text-lg font-semibold'><Link to='/home'>Home</Link></li>
-            <li tabIndex={0} className='text-lg font-semibold'>
-              <Link>
-                Parent
-                <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" /></svg>
-              </Link>
-              <ul className="p-2">
-                <li><Link>Submenu 1</Link></li>
-                <li><Link>Submenu 2</Link></li>
-              </ul>
+            <li className='text-lg font-semibold'><Link to='/services'>Services</Link></li>
+            <li className='text-lg font-semibold'>
+              {
+                user?.uid ?
+                  <span className=' gap-8'>
+                    <Link to='/myreviews'>My Reviews</Link>
+                    <Link>About</Link>
+                  </span>
+                  :
+                  <Link to='reviews'>Reviews</Link>
+              }
             </li>
-            <li className='text-lg font-semibold'><Link to='services'>Services</Link></li>
+            <li className='text-lg font-semibold'>
+              {
+                user?.uid ?
+                  <Link to='/addservice'>Add Service</Link>
+                  :
+                  <Link>About</Link>
+              }
+            </li>
+            <li className='text-lg font-semibold'><Link to='/blogs'>Blogs</Link></li>
           </ul>
         </div>
         <div className="navbar-end">
-          <Link className="btn bg-sky-500 border-none font-bold">Sign In</Link>
+          <>
+            {
+              user?.uid ?
+
+                <div className='flex items-center justify-center gap-6'>
+                  <div>
+                    <div className="avatar online">
+                      <div className="w-12 rounded-full">
+                        <img src={user?.photoURL} alt='' />
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <Link className="btn bg-sky-500 border-none font-bold">
+                      <button onClick={handleSignOut}>Sign Out</button>
+                    </Link>
+                  </div>
+
+                </div>
+
+
+                :
+                <Link className="btn bg-sky-500 border-none font-bold" to='/signin'>Sign In</Link>
+
+            }
+          </>
         </div>
       </div>
     </div>
