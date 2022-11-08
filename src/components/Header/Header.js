@@ -26,7 +26,7 @@ const Header = () => {
               <li><Link>Item 3</Link></li>
             </ul>
           </div>
-          <Link className="btn btn-ghost">
+          <Link className="btn btn-ghost" to='/home'>
             <div className='flex items-center gap-4'>
               <img src={Logo} alt='' className=' w-12' />
               <p className=' font-bold text-2xl'>Pass Comments</p>
@@ -35,7 +35,7 @@ const Header = () => {
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal p-0">
-            <li className='text-lg font-semibold'><Link>Home</Link></li>
+            <li className='text-lg font-semibold'><Link to='/home'>Home</Link></li>
             <li tabIndex={0} className='text-lg font-semibold'>
               <Link>
                 Parent
@@ -46,7 +46,7 @@ const Header = () => {
                 <li><Link>Submenu 2</Link></li>
               </ul>
             </li>
-            <li className='text-lg font-semibold'><Link>Item 3</Link></li>
+            <li className='text-lg font-semibold'><Link to='services'>Services</Link></li>
           </ul>
         </div>
         <div className="navbar-end">
