@@ -50,7 +50,7 @@ const Header = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <Link className="btn bg-sky-500 border-none font-bold">Log In</Link>
+          <Link className="btn bg-sky-500 border-none font-bold">Sign In</Link>
         </div>
       </div>
     </div>

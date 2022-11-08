@@ -1,14 +1,15 @@
 import React from 'react';
-import img1 from '../../images/chocolate-chip-muffin.jpg';
-import img3 from '../../images/chocolate-donuts.jpg';
-import img2 from '../../images/colorful-cupcakes.jpg';
-import img4 from '../../images/crunchy-bread.jpg';
-import img5 from '../../images/fruit-and-cream-cake.jpg';
-import img6 from '../../images/iced-coffee.jpg';
-import img7 from '../../images/traditional-italian-cappuccino.jpg';
-import Banner from '../../images/banner.png';
+import img1 from '../../../images/chocolate-chip-muffin.jpg';
+import img2 from '../../../images/colorful-cupcakes.jpg';
+import img3 from '../../../images/chocolate-donuts.jpg';
+import img4 from '../../../images/crunchy-bread.jpg';
+import img5 from '../../../images/fruit-and-cream-cake.jpg';
+import img6 from '../../../images/iced-coffee.jpg';
+import img7 from '../../../images/traditional-italian-cappuccino.jpg';
+import Banner from '../../../images/banner.png';
 import { Link, useLoaderData } from 'react-router-dom';
 import Service from '../Service/Service';
+
 
 const Home = () => {
 
