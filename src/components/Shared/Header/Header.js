@@ -82,7 +82,7 @@ const Header = () => {
                 <div className='flex items-center justify-center gap-6'>
                   <div>
                     <div className="avatar online">
-                      <div className="w-12 rounded-full">
+                      <div className="w-16 rounded-full">
                         <img src={user?.photoURL} alt='' />
                       </div>
                     </div>

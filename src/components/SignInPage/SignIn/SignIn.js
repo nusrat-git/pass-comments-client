@@ -1,24 +1,27 @@
 import { GoogleAuthProvider } from 'firebase/auth';
-import React, { useContext } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import SignInImg from '../../../images/signin.png'
 import { AuthContext } from '../../Shared/Context/AuthProvider/AuthProvider';
 
 const SignIn = () => {
 
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
     const {
-        getEmail,
-        getPassword,
-        email,
-        password,
         userSignIn,
         userSignInGoogle,
-        setUser
+        setUser,
+        setLoading
     } = useContext(AuthContext);
 
     const provider = new GoogleAuthProvider();
 
     const navigate = useNavigate();
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || '/';
 
     const handleSignIn = event => {
         event.preventDefault();
@@ -28,12 +31,15 @@ const SignIn = () => {
                 const user = result.user;
                 console.log(user);
                 setUser(user);
-                navigate('/');
+                navigate(from, { replace: true });
             })
             .catch(error => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
                 console.log(errorCode, errorMessage);
+            })
+            .finally(() => {
+                setLoading(false);
             })
 
     }
@@ -46,12 +52,17 @@ const SignIn = () => {
                 const user = result.user;
                 console.log(user);
                 setUser(user);
+                navigate(from, { replace: true });
             })
             .catch(error => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
                 console.log(errorCode, errorMessage);
             })
+            .finally(() => {
+                setLoading(false);
+            })
+
     }
 
 
@@ -68,13 +79,13 @@ const SignIn = () => {
                         <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
                             Email
                         </label>
-                        <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Email" onChange={getEmail} required />
+                        <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Email" onChange={(e) => setEmail(e.target.value)} required />
                     </div>
                     <div className="mb-6">
                         <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">
                             Password
                         </label>
-                        <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="******************" onChange={getPassword} required />
+                        <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="******************" onChange={(e) => setPassword(e.target.value)} required />
                     </div>
                     <div className='mt-4'>
                         <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">

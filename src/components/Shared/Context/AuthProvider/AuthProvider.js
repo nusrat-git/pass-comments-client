@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { createContext } from 'react';
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth';
+import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth';
 import app from '../../../../firebase/firebase.config';
 
 export const AuthContext = createContext()
@@ -8,29 +8,34 @@ const auth = getAuth(app);
 
 const AuthProvider = ({ children }) => {
 
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
     const [user, setUser] = useState(null);
+    const [loading, setLoading] = useState(true);
 
 
     const createUser = (email, password) => {
-
+        setLoading(true);
         return createUserWithEmailAndPassword(auth, email, password);
     }
 
     const userSignIn = (email, password) => {
-
+        setLoading(true);
         return signInWithEmailAndPassword(auth, email, password);
     }
 
     const userSignInGoogle = (provider) => {
+        setLoading(true);
         return signInWithPopup(auth, provider);
+    }
+
+    const updateUserProfile=(profile)=>{
+        return updateProfile(auth.currentUser, profile);
     }
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
-            console.log(currentUser);
+            console.log('inside auth state change', currentUser);
             setUser(currentUser);
+            setLoading(false);
         });
 
         return () => {
@@ -38,31 +43,21 @@ const AuthProvider = ({ children }) => {
         }
     }, [])
 
-    const userSignOut = () =>{
+    const userSignOut = () => {
+        setLoading(true);
         return signOut(auth);
-    }
-
-    const getEmail = (event) => {
-        const emailValue = event.target.value;
-        setEmail(emailValue);
-    }
-
-    const getPassword = (event) => {
-        const passwordValue = event.target.value;
-        setPassword(passwordValue);
     }
 
     const authInfo = {
         createUser,
-        getEmail,
-        getPassword,
-        email,
-        password,
         userSignIn,
         userSignInGoogle,
         user,
+        loading,
+        setLoading,
         setUser,
-        userSignOut
+        userSignOut,
+        updateUserProfile
     };
 
     return (
