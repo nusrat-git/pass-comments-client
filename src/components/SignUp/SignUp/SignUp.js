@@ -11,8 +11,9 @@ const SignUp = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [image, setImage] = useState('');
-    
-    const fullName = `${firstName} ${lastName}`
+    const [users, setUsers] = useState([]);
+
+    const fullName = `${firstName} ${lastName}`;
 
     const {
         createUser,
@@ -30,6 +31,12 @@ const SignUp = () => {
 
     const from = location.state?.from?.pathname || '/';
 
+    const userData = {
+        name: fullName,
+        email: email,
+        image: image
+    }
+
     const handleSignUp = (event) => {
         event.preventDefault();
 
@@ -39,6 +46,7 @@ const SignUp = () => {
                 console.log(user);
                 setUser(user);
                 handleUserProfile(fullName, image);
+                sendUser(userData);
                 navigate(from, { replace: true });
             })
             .catch(error => {
@@ -51,6 +59,22 @@ const SignUp = () => {
             })
     }
 
+    const sendUser = (userData) => {
+        fetch('http://localhost:5000/users', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(userData)
+        })
+            .then(res => res.json())
+            .then(data => {
+                const newUsers = [...users, data];
+                setUsers(newUsers);
+            })
+            .catch(err => console.error(err))
+    }
+
     const handleGoogleSignIn = (event) => {
         event.preventDefault();
 
@@ -59,6 +83,8 @@ const SignUp = () => {
                 const user = result.user;
                 console.log(user);
                 setUser(user);
+                handleUserProfile(fullName, image); 
+                sendUser(userData);
                 navigate(from, { replace: true });
             })
             .catch(error => {
@@ -73,8 +99,8 @@ const SignUp = () => {
 
     const handleUserProfile = (name, image) => {
         const profile = {
-            displayName : name,
-            photoURL : image
+            displayName: name,
+            photoURL: image
         }
 
         updateUserProfile(profile)
@@ -82,11 +108,6 @@ const SignUp = () => {
             .catch(error => console.error(error));
     }
 
-    // const userData = {
-    //     name: `${firstName} ${lastName}`,
-    //     email: `${email}`,
-    //     image: `${image}`
-    // }
 
     return (
         <div className='flex my-20 justify-center gap-10'>
