@@ -56,7 +56,7 @@ const Header = () => {
                     <Link>About</Link>
                   </span>
                   :
-                  <Link to='reviews'>Reviews</Link>
+                  <Link to='/reviews'>Reviews</Link>
               }
             </li>
             <li className='text-lg font-semibold'>
