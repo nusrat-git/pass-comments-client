@@ -2,6 +2,8 @@ import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Logo from '../../../logo.png';
 import { AuthContext } from '../Context/AuthProvider/AuthProvider';
+import { PhotoProvider, PhotoView } from 'react-photo-view';
+import 'react-photo-view/dist/react-photo-view.css';
 
 const Header = () => {
 
@@ -82,7 +84,12 @@ const Header = () => {
                   <div>
                     <div className="avatar online">
                       <div className="w-16 rounded-full">
-                        <img src={user?.photoURL} alt='' />
+                        <PhotoProvider>
+                          <PhotoView src={user?.photoURL}>
+                            <img src={user?.photoURL} alt='' />
+                          </PhotoView>
+                        </PhotoProvider>
+
                       </div>
                     </div>
                   </div>

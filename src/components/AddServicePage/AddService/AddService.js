@@ -9,13 +9,6 @@ const AddService = () => {
     const [description, setDescription] = useState('');
     const [serviceData, setServiceData] = useState([]);
 
-    // const serviceDatas = {
-    //     name: service,
-    //     img: image,
-    //     price: price,
-    //     description: description,
-    //     business_name: business
-    // }
 
     const sendService = (event) => {
 
