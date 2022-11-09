@@ -2,7 +2,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import AddService from '../../components/AddServicePage/AddService/AddService';
 import Blogs from '../../components/BlogPage/Blogs/Blogs';
 import Details from '../../components/DetailsPage/Details/Details';
-import Reviews from '../../components/DetailsPage/Reviews/Reviews';
+import Review from '../../components/DetailsPage/Review/Review';
 import Error from '../../components/ErrorPage/Error/Error';
 import Home from '../../components/HomePage/Home/Home';
 import MyReviews from '../../components/MyReviewsPage/MyReviews/MyReviews';
@@ -37,7 +37,7 @@ export const router = createBrowserRouter([
             {
                 path: 'details/:id',
                 element: <Details></Details>,
-                loader: ({params}) => fetch(`http://localhost:5000/details/${params.id}`)
+                loader: ({ params }) => fetch(`http://localhost:5000/details/${params.id}`),
             },
             {
                 path: 'signup',
@@ -52,8 +52,8 @@ export const router = createBrowserRouter([
                 element: <Blogs></Blogs>
             },
             {
-                path: 'reviews',
-                element: <Reviews></Reviews>
+                path: 'details/review',
+                element: <Review></Review>
             },
             {
                 path: 'myreviews',

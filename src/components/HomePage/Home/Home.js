@@ -56,7 +56,7 @@ const Home = () => {
             </div>
             <div>
                 <Link to='/services'>
-                    <button className="btn btn-secondary my-10">Load More</button>
+                    <button className="btn btn-info my-10 text-white font-bold">Load More</button>
                 </Link>
             </div>
 
