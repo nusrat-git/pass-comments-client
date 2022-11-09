@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Logo from '../../../logo.png';
 import { AuthContext } from '../Context/AuthProvider/AuthProvider';
 
@@ -12,12 +12,14 @@ const Header = () => {
 
   } = useContext(AuthContext);
 
+  const navigate = useNavigate();
+
   const handleSignOut = (event) => {
     event.preventDefault();
 
     userSignOut()
       .then(() => {
-
+        navigate('/signin');
       })
       .catch(error => {
         const errorCode = error.code;

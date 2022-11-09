@@ -1,6 +1,6 @@
 import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext } from 'react';
-import { Link, Navigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import SignInImg from '../../../images/signin.png'
 import { AuthContext } from '../../Shared/Context/AuthProvider/AuthProvider';
 
@@ -18,6 +18,8 @@ const SignIn = () => {
 
     const provider = new GoogleAuthProvider();
 
+    const navigate = useNavigate();
+
     const handleSignIn = event => {
         event.preventDefault();
 
@@ -25,6 +27,8 @@ const SignIn = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                setUser(user);
+                navigate('/');
             })
             .catch(error => {
                 const errorCode = error.code;
@@ -40,9 +44,8 @@ const SignIn = () => {
         userSignInGoogle(provider)
             .then(result => {
                 const user = result.user;
-                setUser(user);
                 console.log(user);
-                <Navigate to='/'></Navigate>
+                setUser(user);
             })
             .catch(error => {
                 const errorCode = error.code;
@@ -74,11 +77,9 @@ const SignIn = () => {
                         <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="******************" onChange={getPassword} required />
                     </div>
                     <div className='mt-4'>
-                        <Link to='/'>
-                            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
-                                Sign In
-                            </button>
-                        </Link>
+                        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+                            Sign In
+                        </button>
                         <div className="divider">OR</div>
                         <div>
                             <button className='btn bg-blue-500 text-white font-bold border-none' onClick={handleGoogleSignIn}>Sign In With Google</button>
