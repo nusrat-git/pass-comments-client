@@ -12,7 +12,9 @@ const Header = () => {
 
   } = useContext(AuthContext);
 
-  const handleSignOut = () => {
+  const handleSignOut = (event) => {
+    event.preventDefault();
+
     userSignOut()
       .then(() => {
 

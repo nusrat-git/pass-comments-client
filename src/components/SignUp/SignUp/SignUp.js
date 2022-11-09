@@ -1,6 +1,6 @@
 import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import signUpImg from '../../../images/signup.png'
 import { AuthContext } from '../../Shared/Context/AuthProvider/AuthProvider';
 
@@ -25,6 +25,7 @@ const SignUp = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                <Navigate to='/'></Navigate>
             })
             .catch(error => {
                 const errorCode = error.code;
@@ -33,12 +34,15 @@ const SignUp = () => {
             })
     }
 
-    const handleGoogleSignIn = () => {
+    const handleGoogleSignIn = (event) => {
+        event.preventDefault();
+
         userSignInGoogle(provider)
             .then(result => {
                 const user = result.user;
                 setUser(user);
                 console.log(user);
+                <Navigate to='/'></Navigate>
             })
             .catch(error => {
                 const errorCode = error.code;
@@ -103,9 +107,11 @@ const SignUp = () => {
                     </div>
                 </div>
                 <div className='mt-8'>
-                    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
-                        Sign up
-                    </button>
+                    <Link to='/'>
+                        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+                            Sign up
+                        </button>
+                    </Link>
                     <div className="divider">OR</div>
                     <div>
                         <button className='btn bg-blue-500 text-white font-bold border-none' onClick={handleGoogleSignIn}>Sign Up With Google</button>
