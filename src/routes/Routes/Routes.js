@@ -5,10 +5,12 @@ import Details from '../../components/DetailsPage/Details/Details';
 import Reviews from '../../components/DetailsPage/Reviews/Reviews';
 import Error from '../../components/ErrorPage/Error/Error';
 import Home from '../../components/HomePage/Home/Home';
+import MyReviews from '../../components/MyReviewsPage/MyReviews/MyReviews';
 import Services from '../../components/ServicesPage/Services/Services';
 import SignIn from '../../components/SignInPage/SignIn/SignIn';
 import SignUp from '../../components/SignUp/SignUp/SignUp';
 import Main from '../../layout/Main';
+import PrivateRoute from '../PrivateRoutes/PrivateRoute';
 
 
 
@@ -54,8 +56,12 @@ export const router = createBrowserRouter([
                 element: <Reviews></Reviews>
             },
             {
+                path: 'myreviews',
+                element: <PrivateRoute><MyReviews></MyReviews></PrivateRoute>
+            },
+            {
                 path: 'addservice',
-                element: <AddService></AddService>
+                element: <PrivateRoute><AddService></AddService></PrivateRoute>
             },
             {
                 path: '*',
