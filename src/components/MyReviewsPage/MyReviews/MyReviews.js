@@ -1,8 +1,32 @@
 import { useLoaderData } from 'react-router-dom';
 import { GoPrimitiveDot } from 'react-icons/go';
+import { MdDelete } from 'react-icons/md';
+import { useState } from 'react';
 
 const MyReviews = () => {
     const myReviews = useLoaderData();
+    const [reviews, setReviews] = useState([]);
+
+
+    const handleDelete = (id) => {
+        const decision = window.confirm('Do you want to delete this review?')
+        if (decision) {
+            fetch(`http://localhost:5000/reviews/${id}`, {
+                method: 'DELETE',
+                headers: {
+                    'content-type': 'application/json'
+                }
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.deletedCount > 0) {
+                        alert('deleted successfully');
+                        const remaining = reviews.filter(rvw => rvw._id !== id);
+                        setReviews(remaining);
+                    }
+                })
+        }
+    }
 
     return (
         <div className='m-20 px-16'>
@@ -22,6 +46,7 @@ const MyReviews = () => {
                                     <th>Review</th>
                                     <th>Rating</th>
                                     <th>Date</th>
+                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -33,6 +58,7 @@ const MyReviews = () => {
                                             <td>{myReview.text}</td>
                                             <td>{myReview.rating}</td>
                                             <td>{myReview.created}</td>
+                                            <td><button onClick={() => handleDelete(myReview._id)}><MdDelete></MdDelete></button></td>
                                         </tr>
                                     )
                                 }
@@ -44,6 +70,7 @@ const MyReviews = () => {
                                     <th>Review</th>
                                     <th>Rating</th>
                                     <th>Date</th>
+                                    <th></th>
                                 </tr>
                             </tfoot>
                         </table>
