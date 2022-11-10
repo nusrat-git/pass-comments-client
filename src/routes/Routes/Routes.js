@@ -37,7 +37,7 @@ export const router = createBrowserRouter([
             {
                 path: 'details/:id',
                 element: <Details></Details>,
-                loader: ({ params }) => fetch(`http://localhost:5000/details/${params.id}`),
+                loader: ({ params }) => fetch(`http://localhost:5000/details/${params.id}`)
             },
             {
                 path: 'signup',
@@ -52,8 +52,9 @@ export const router = createBrowserRouter([
                 element: <Blogs></Blogs>
             },
             {
-                path: 'details/review',
-                element: <Review></Review>
+                path: 'details/:id/addreview',
+                element: <PrivateRoute><Review></Review></PrivateRoute>,
+                loader: ({ params }) => fetch(`http://localhost:5000/details/${params.id}`)
             },
             {
                 path: 'myreviews',
