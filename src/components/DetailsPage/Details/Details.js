@@ -1,12 +1,23 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { AuthContext } from '../../Shared/Context/AuthProvider/AuthProvider';
 
 const Details = () => {
 
     const details = useLoaderData();
     const [reviews, setReviews] = useState([]);
+    const { user } = useContext(AuthContext);
 
-    console.log(details);
+    const notify = () => {
+
+        if (!user) {
+            toast("Please sign in to review")
+        }
+
+    };
+
 
     useEffect(() => {
         fetch(`http://localhost:5000/reviews/${details._id}`)
@@ -17,7 +28,7 @@ const Details = () => {
             })
     }, [details._id])
 
-    const { _id,name, img, price, business_name } = details;
+    const { _id, name, img, price, business_name } = details;
 
     return (
         <div>
@@ -29,9 +40,20 @@ const Details = () => {
                         <p className='mt-10 text-xl font-bold'>Business Name: {business_name}</p>
                         <p className='text-lg mt-6 font-semibold'>Price: {price}</p>
                         <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-                        <Link to={`/details/${_id}/addreview`}>
-                            <button className="btn btn-info font-bold">Add a review</button>
-                        </Link>
+                        {
+                            user ?
+                                <Link to={`/details/${_id}/addreview`}>
+                                    <button className="btn btn-info font-bold">Add a review</button>
+                                </Link>
+                                :
+                                <div>
+                                    <Link to='/signin' className='btn btn-info mr-6'>Sign In</Link>
+                                    <Link>
+                                        <button className="btn btn-info" onClick={notify}>Add a review</button>
+                                    </Link>
+                                </div>
+                        }
+
                     </div>
                 </div>
             </div>
@@ -64,6 +86,7 @@ const Details = () => {
                     }
                 </div>
             </div>
+            <ToastContainer />
         </div>
     );
 };

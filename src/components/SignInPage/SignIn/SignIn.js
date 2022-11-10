@@ -8,6 +8,7 @@ const SignIn = () => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
 
     const {
         userSignIn,
@@ -37,6 +38,7 @@ const SignIn = () => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
                 console.log(errorCode, errorMessage);
+                setError(errorMessage);
             })
             .finally(() => {
                 setLoading(false);
@@ -58,6 +60,7 @@ const SignIn = () => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
                 console.log(errorCode, errorMessage);
+                setError(errorMessage);
             })
             .finally(() => {
                 setLoading(false);
@@ -87,6 +90,18 @@ const SignIn = () => {
                         </label>
                         <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="******************" onChange={(e) => setPassword(e.target.value)} required />
                     </div>
+                    <div>
+                        {
+                            error ?
+                                <div className="alert alert-error shadow-lg">
+                                        <span>{error}</span>                                 
+                                </div>
+                                :
+                                <div>
+                                    <h1>Please sign in</h1>
+                                </div>
+                        }
+                    </div>
                     <div className='mt-4'>
                         <button className="btn btn-info hover:bg-gray-400 border-none" type="submit">
                             Sign In
@@ -95,9 +110,15 @@ const SignIn = () => {
                         <div>
                             <button className='btn btn-info hover:bg-gray-400 border-none' onClick={handleGoogleSignIn}>Sign In With Google</button>
                         </div>
-                        <div>Already have an account? <Link className="inline-block align-baseline font-bold text-sm text-sky-500 hover:text-blue-600 underline mt-6" to='/signup'>
+                        <div>Already have an account? <Link className="inline-block align-baseline font-bold text-sm text-sky-500 hover:gray-400 underline mt-6" to='/signup'>
                             Sign Up
                         </Link></div>
+                        {/* <div className="alert alert-error shadow-lg">
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                <span>Error! Task failed successfully.</span>
+                            </div>
+                        </div> */}
 
                     </div>
                 </form>

@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const AddService = () => {
 
@@ -8,6 +10,9 @@ const AddService = () => {
     const [image, setImage] = useState('');
     const [description, setDescription] = useState('');
     const [serviceData, setServiceData] = useState([]);
+
+    const notify = () => toast("Service added");
+
 
 
     const sendService = (event) => {
@@ -33,12 +38,14 @@ const AddService = () => {
             .then(data => {
                 const newService = [...serviceData, data];
                 setServiceData(newService);
+                notify();
             })
             .catch(err => console.error(err))
 
         event.target.reset();
         
     }
+    
 
 
     return (
@@ -98,6 +105,7 @@ const AddService = () => {
                 </div>
 
             </form>
+            <ToastContainer />
         </div>
     );
 };
