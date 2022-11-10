@@ -94,7 +94,7 @@ const AddService = () => {
                     </div>
                 </div>
                 <div>
-                    <button type='submit' className='btn btn-info text-white'>Add Service</button>
+                    <button type='submit' className='btn btn-info'>Add Service</button>
                 </div>
 
             </form>

@@ -10,7 +10,7 @@ const AllService = ({ allService }) => {
                 <div className="card-body">
                     <h2 className="card-title">
                         {name}
-                        <div className="badge badge-info text-white">NEW</div>
+                        <div className="badge badge-info text-xs">NEW</div>
                     </h2>
                     <h2>Business Name: {business_name}</h2>
                     <h2>Price: {price}$</h2>
@@ -22,7 +22,7 @@ const AllService = ({ allService }) => {
                 </div>
                 <div>
                     <Link to={`/details/${_id}`}>
-                        <button className='btn btn-info mb-8 text-white font-bold'>View Details</button>
+                        <button className='btn btn-info mb-8'>View Details</button>
                     </Link>
                 </div>
             </div>

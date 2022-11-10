@@ -103,7 +103,7 @@ const Review = () => {
                             <textarea className="textarea textarea-bordered w-full" placeholder="Service Description" id='description' required onBlur={(e) => setText(e.target.value)}></textarea>
                         </div>
                     </div>
-                    <button className='btn btn-info text-white font-bold' type='submit'>Add Your Review</button>
+                    <button className='btn btn-info' type='submit'>Add Your Review</button>
 
                 </form>
             </div>

@@ -30,7 +30,7 @@ const Details = () => {
                         <p className='text-lg mt-6 font-semibold'>Price: {price}</p>
                         <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
                         <Link to={`/details/${_id}/addreview`}>
-                            <button className="btn btn-info text-white font-bold">Add a review</button>
+                            <button className="btn btn-info font-bold">Add a review</button>
                         </Link>
                     </div>
                 </div>

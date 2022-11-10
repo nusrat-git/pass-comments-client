@@ -94,7 +94,7 @@ const Header = () => {
                     </div>
                   </div>
                   <div>
-                    <Link className="btn bg-sky-500 border-none font-bold">
+                    <Link className="btn btn-info text-lg">
                       <button onClick={handleSignOut}>Sign Out</button>
                     </Link>
                   </div>
@@ -103,7 +103,7 @@ const Header = () => {
 
 
                 :
-                <Link className="btn bg-sky-500 border-none font-bold" to='/signin'>Sign In</Link>
+                <Link className="btn btn-info" to='/signin'>Sign In</Link>
 
             }
           </>
