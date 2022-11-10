@@ -12,8 +12,6 @@ import SignUp from '../../components/SignUp/SignUp/SignUp';
 import Main from '../../layout/Main';
 import PrivateRoute from '../PrivateRoutes/PrivateRoute';
 
-
-
 export const router = createBrowserRouter([
     {
         path: '/',
@@ -57,8 +55,9 @@ export const router = createBrowserRouter([
                 loader: ({ params }) => fetch(`http://localhost:5000/details/${params.id}`)
             },
             {
-                path: 'myreviews',
-                element: <PrivateRoute><MyReviews></MyReviews></PrivateRoute>
+                path: 'myreviews/:email',
+                element: <PrivateRoute><MyReviews></MyReviews></PrivateRoute> ,
+                loader: ({params})=> fetch(`http://localhost:5000/myreviews/${params.email}`)
             },
             {
                 path: 'addservice',

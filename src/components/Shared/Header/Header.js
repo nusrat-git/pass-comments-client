@@ -58,7 +58,7 @@ const Header = () => {
               {
                 user?.uid ?
                   <span className=' gap-8'>
-                    <Link to='/myreviews'>My Reviews</Link>
+                    <Link to={`/myreviews/${user?.email}`}>My Reviews</Link>
                   </span>
                   :
                   <Link to='/reviews'>Reviews</Link>
