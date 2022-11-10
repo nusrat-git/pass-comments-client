@@ -42,6 +42,7 @@ const Review = () => {
             .then(data => {
                 const newReview = [...review, data];
                 setReview(newReview);
+                toast('Review added successfully')
             })
             .catch(err => console.error(err))
 
