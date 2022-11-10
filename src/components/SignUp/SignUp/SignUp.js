@@ -22,6 +22,7 @@ const SignUp = () => {
         createUser,
         userSignInGoogle,
         setUser,
+        loading,
         setLoading,
         updateUserProfile
     } = useContext(AuthContext);
@@ -38,6 +39,10 @@ const SignUp = () => {
         name: fullName,
         email: email,
         image: image
+    }
+
+    if (loading) {
+        <p className="btn bg-white border-none loading text-black my-10"></p>
     }
 
     const handleSignUp = (event) => {

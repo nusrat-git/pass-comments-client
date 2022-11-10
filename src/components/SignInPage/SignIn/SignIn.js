@@ -15,6 +15,7 @@ const SignIn = () => {
     const {
         userSignIn,
         userSignInGoogle,
+        loading,
         setUser,
         setLoading
     } = useContext(AuthContext);
@@ -25,6 +26,10 @@ const SignIn = () => {
     const location = useLocation();
 
     const from = location.state?.from?.pathname || '/';
+
+    if (loading) {
+        <p className="btn bg-white border-none loading text-black my-10"></p>
+    }
 
     const handleSignIn = event => {
         event.preventDefault();
@@ -75,7 +80,7 @@ const SignIn = () => {
         <div className='md:m-20 md:flex md:gap-40 justify-center items-center'>
 
             <div>
-                <img src={SignInImg} alt="" className='w-full'/>
+                <img src={SignInImg} alt="" className='w-full' />
             </div>
 
             <div className="w-full max-w-xs">
@@ -96,7 +101,7 @@ const SignIn = () => {
                         {
                             error ?
                                 <div className="alert alert-error shadow-lg">
-                                        <span>{error}</span>                                 
+                                    <span>{error}</span>
                                 </div>
                                 :
                                 <div>
