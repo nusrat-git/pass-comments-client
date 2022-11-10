@@ -1,7 +1,10 @@
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import { GoPrimitiveDot } from 'react-icons/go';
+import { MdModeEditOutline } from 'react-icons/md';
 import { MdDelete } from 'react-icons/md';
 import { useState } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const MyReviews = () => {
     const myReviews = useLoaderData();
@@ -20,9 +23,9 @@ const MyReviews = () => {
                 .then(res => res.json())
                 .then(data => {
                     if (data.deletedCount > 0) {
-                        alert('deleted successfully');
                         const remaining = reviews.filter(rvw => rvw._id !== id);
                         setReviews(remaining);
+                        toast('deleted successfully');
                     }
                 })
         }
@@ -34,7 +37,9 @@ const MyReviews = () => {
                 (myReviews.length === 0) ?
                     <div>
                         <h1>No reviews were added</h1>
-                        <button className='btn btn-info my-20'>Go to Services</button>
+                        <Link to='/services'>
+                            <button className='btn btn-info my-20'>Go to Services</button>
+                        </Link>
                     </div>
                     :
                     <div className="overflow-x-auto">
@@ -45,7 +50,7 @@ const MyReviews = () => {
                                     <th>Service</th>
                                     <th>Review</th>
                                     <th>Rating</th>
-                                    <th>Date</th>
+                                    <th></th>
                                     <th></th>
                                 </tr>
                             </thead>
@@ -57,7 +62,7 @@ const MyReviews = () => {
                                             <td>{myReview.service_name}</td>
                                             <td>{myReview.text}</td>
                                             <td>{myReview.rating}</td>
-                                            <td>{myReview.created}</td>
+                                            <td><button><MdModeEditOutline></MdModeEditOutline></button></td>
                                             <td><button onClick={() => handleDelete(myReview._id)}><MdDelete></MdDelete></button></td>
                                         </tr>
                                     )
@@ -69,14 +74,14 @@ const MyReviews = () => {
                                     <th>Service</th>
                                     <th>Review</th>
                                     <th>Rating</th>
-                                    <th>Date</th>
+                                    <th></th>
                                     <th></th>
                                 </tr>
                             </tfoot>
                         </table>
                     </div>
             }
-
+            <ToastContainer />
         </div >
     );
 };

@@ -2,6 +2,8 @@ import React, { useContext, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import reviewImg from '../../../images/review.png';
 import { AuthContext } from '../../Shared/Context/AuthProvider/AuthProvider';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Review = () => {
 
@@ -46,11 +48,11 @@ const Review = () => {
     }
 
     if (rating < 0) {
-        alert('Your rating cannot be a negative number')
+        toast('Your rating cannot be a negative number')
     }
 
     if (rating > 5) {
-        alert('You cannot rate more than 5')
+        toast('You cannot rate more than 5')
     }
 
 
@@ -92,7 +94,7 @@ const Review = () => {
                             <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-service-name">
                                 Rating
                             </label>
-                            <input className="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-service-name" type="number" placeholder="Rating" required onBlur={(e) => setRating(e.target.value)} />
+                            <input className="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-service-name" type="number" placeholder="Rating" required onChange={(e) => setRating(e.target.value)} />
                         </div>
                     </div>
                     <div className="flex flex-wrap -mx-3 mb-6">
@@ -107,7 +109,7 @@ const Review = () => {
 
                 </form>
             </div>
-
+            <ToastContainer />
         </div>
     );
 };
