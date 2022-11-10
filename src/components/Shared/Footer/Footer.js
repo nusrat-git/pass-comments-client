@@ -5,10 +5,10 @@ import Logo from '../../../logo.png';
 const Footer = () => {
     return (
         <div>
-            <footer className="footer p-10 bg-base-200 text-base-content">
+            <footer className="footer p-20 bg-base-200 text-base-content">
                 <div>
-                    <img src={Logo} alt='' className='w-36'/>
-                    <p>ACME Industries Ltd.<br />Providing reliable tech since 1992</p>
+                    <img src={Logo} alt='' className='w-36' />
+                    <p>PASS COMMENTS<br />Providing genuine feedbacks</p>
                 </div>
                 <div>
                     <span className="footer-title">Services</span>
