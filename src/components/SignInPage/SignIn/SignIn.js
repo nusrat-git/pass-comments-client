@@ -88,14 +88,14 @@ const SignIn = () => {
                         <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="******************" onChange={(e) => setPassword(e.target.value)} required />
                     </div>
                     <div className='mt-4'>
-                        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+                        <button className="btn btn-info hover:bg-gray-400 border-none" type="submit">
                             Sign In
                         </button>
                         <div className="divider">OR</div>
                         <div>
-                            <button className='btn bg-blue-500 text-white font-bold border-none' onClick={handleGoogleSignIn}>Sign In With Google</button>
+                            <button className='btn btn-info hover:bg-gray-400 border-none' onClick={handleGoogleSignIn}>Sign In With Google</button>
                         </div>
-                        <div>Already have an account? <Link className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-600 underline mt-6" to='/signup'>
+                        <div>Already have an account? <Link className="inline-block align-baseline font-bold text-sm text-sky-500 hover:text-blue-600 underline mt-6" to='/signup'>
                             Sign Up
                         </Link></div>
 

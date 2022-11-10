@@ -94,7 +94,7 @@ const Header = () => {
                     </div>
                   </div>
                   <div>
-                    <Link className="btn btn-info text-lg">
+                    <Link className="btn btn-info">
                       <button onClick={handleSignOut}>Sign Out</button>
                     </Link>
                   </div>

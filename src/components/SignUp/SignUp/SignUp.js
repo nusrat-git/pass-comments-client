@@ -163,14 +163,14 @@ const SignUp = () => {
                     </div>
                 </div>
                 <div className='mt-8'>
-                    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+                    <button className="btn btn-info hover:bg-gray-400 border-none" type="submit">
                         Sign up
                     </button>
                     <div className="divider">OR</div>
                     <div>
-                        <button className='btn bg-blue-500 text-white font-bold border-none' onClick={handleGoogleSignIn}>Sign Up With Google</button>
+                        <button className='btn btn-info hover:bg-gray-400 border-none' onClick={handleGoogleSignIn}>Sign Up With Google</button>
                     </div>
-                    <div>Don't have an account? <Link className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-600 underline mt-6" to='/signin'>
+                    <div>Don't have an account? <Link className="inline-block align-baseline font-bold text-sm text-sky-500 hover:text-blue-600 underline mt-6" to='/signin'>
                         Sign In
                     </Link></div>
                 </div>
