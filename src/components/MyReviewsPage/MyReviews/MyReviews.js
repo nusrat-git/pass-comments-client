@@ -15,7 +15,7 @@ const MyReviews = () => {
     const handleDelete = (id) => {
         const decision = window.confirm('Do you want to delete this review?')
         if (decision) {
-            fetch(`http://localhost:5000/reviews/${id}`, {
+            fetch(`https://pass-comments-server.vercel.app/reviews/${id}`, {
                 method: 'DELETE',
                 headers: {
                     'content-type': 'application/json'

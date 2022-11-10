@@ -68,7 +68,7 @@ const SignUp = () => {
     }
 
     const sendUser = (userData) => {
-        fetch('http://localhost:5000/users', {
+        fetch('https://pass-comments-server.vercel.app/users', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

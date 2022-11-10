@@ -23,7 +23,7 @@ const Details = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews/${details._id}`)
+        fetch(`https://pass-comments-server.vercel.app/reviews/${details._id}`)
             .then(res => res.json())
             .then(data => {
                 setReviews(data);

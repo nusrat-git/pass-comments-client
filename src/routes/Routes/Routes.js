@@ -20,22 +20,22 @@ export const router = createBrowserRouter([
             {
                 path: '/',
                 element: <Home></Home>,
-                loader: () => fetch('http://localhost:5000/home')
+                loader: () => fetch('https://pass-comments-server.vercel.app/home')
             },
             {
                 path: 'home',
                 element: <Home></Home>,
-                loader: () => fetch('http://localhost:5000/home')
+                loader: () => fetch('https://pass-comments-server.vercel.app/home')
             },
             {
                 path: 'services',
                 element: <Services></Services>,
-                loader: () => fetch('http://localhost:5000/services')
+                loader: () => fetch('https://pass-comments-server.vercel.app/services')
             },
             {
                 path: 'details/:id',
                 element: <Details></Details>,
-                loader: ({ params }) => fetch(`http://localhost:5000/details/${params.id}`)
+                loader: ({ params }) => fetch(`https://pass-comments-server.vercel.app/details/${params.id}`)
             },
             {
                 path: 'signup',
@@ -52,12 +52,12 @@ export const router = createBrowserRouter([
             {
                 path: 'details/:id/addreview',
                 element: <PrivateRoute><Review></Review></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/details/${params.id}`)
+                loader: ({ params }) => fetch(`https://pass-comments-server.vercel.app/details/${params.id}`)
             },
             {
                 path: 'myreviews/:email',
                 element: <PrivateRoute><MyReviews></MyReviews></PrivateRoute> ,
-                loader: ({params})=> fetch(`http://localhost:5000/myreviews/${params.email}`)
+                loader: ({params})=> fetch(`https://pass-comments-server.vercel.app/myreviews/${params.email}`)
             },
             {
                 path: 'addservice',

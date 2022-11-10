@@ -19,7 +19,7 @@ const Home = () => {
     const [homeReviews, setHomeReviews] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/home/reviews')
+        fetch('https://pass-comments-server.vercel.app/home/reviews')
             .then(res => res.json())
             .then(data => setHomeReviews(data));
     }, [])
