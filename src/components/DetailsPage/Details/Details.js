@@ -35,7 +35,7 @@ const Details = () => {
 
     return (
         <div>
-            <div className="hero bg-zinc-100 my-20 md:p-20 ml-3 md:ml:3 rounded-lg">
+            <div className="hero bg-zinc-100 mb-20 md:p-20 ml-3 md:ml:3 rounded-lg">
                 <div className="hero-content flex-col lg:flex-row-reverse md:gap-10">
                     <img src={img} className="rounded-lg shadow-2xl" alt='' />
                     <div>
