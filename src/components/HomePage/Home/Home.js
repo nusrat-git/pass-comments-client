@@ -65,10 +65,10 @@ const Home = () => {
             </div>
             <div>
                 <Link to='/services'>
-                    <button className="btn btn-info my-16 md:mb-20">Load More</button>
+                    <button className="btn btn-info my-16 md:my-0">Load More</button>
                 </Link>
             </div>
-            <div className='md:w-3/4 mx-auto rounded-lg md:m-10 bg-info md:p-10 p-3 ml-6 md:ml-0'>
+            <div className='md:w-3/4 rounded-lg md:m-44 bg-info md:p-10 p-3 ml-6 '>
                 <h1 className='text-5xl font-semibold my-7'>Register</h1>
                 <p className='text-lg font-semibold my-5'>Get help from us to reach your service to customers <br />
                     and get genuine feedback on your services</p>

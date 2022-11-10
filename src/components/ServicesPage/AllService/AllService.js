@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const AllService = ({ allService }) => {
-    const { _id ,name, img, price, business_name } = allService;
+    const { _id ,name, img, price, business_name, description } = allService;
     return (
         <div className='mx-auto'>
             <div className="card w-96 bg-base-100 shadow-xl">
@@ -14,7 +14,7 @@ const AllService = ({ allService }) => {
                     </h2>
                     <h2>Business Name: {business_name}</h2>
                     <h2>Price: {price}$</h2>
-                    <p>If a dog chews shoes whose shoes does he choose?</p>
+                    <p>{description}</p>
                     <div className="card-actions justify-end">
                         <div className="badge badge-outline p-3">Bakery</div>
                         <div className="badge badge-outline p-3">Services</div>

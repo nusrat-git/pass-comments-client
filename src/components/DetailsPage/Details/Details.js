@@ -31,7 +31,7 @@ const Details = () => {
             })
     }, [details._id])
 
-    const { _id, name, img, price, business_name } = details;
+    const { _id, name, img, price, business_name, description } = details;
 
     return (
         <div>
@@ -42,7 +42,7 @@ const Details = () => {
                         <h1 className="text-5xl font-bold">{name}</h1>
                         <p className='mt-10 text-xl font-bold'>Business Name: {business_name}</p>
                         <p className='text-lg mt-6 font-semibold'>Price: {price}</p>
-                        <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+                        <p className="py-6">{description}</p>
                         {
                             user ?
                                 <Link to={`/details/${_id}/addreview`}>
