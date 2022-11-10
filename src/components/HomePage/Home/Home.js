@@ -59,6 +59,36 @@ const Home = () => {
                     <button className="btn btn-info my-10">Load More</button>
                 </Link>
             </div>
+            <div className='w-3/4 mx-auto rounded-lg m-10 bg-info p-10'>
+                <h1 className='text-5xl font-semibold my-7'>Register</h1>
+                <p className='text-lg font-semibold my-5'>Get help from us to reach your service to customers <br />
+                    and get genuine feedback on your services</p>
+                <form className='mx-auto'>
+                    <div className='flex justify-center gap-3'>
+                        <div className='my-4'>
+                            <input type="text" placeholder='Your Name' className=' rounded-2xl p-4 w-full' />
+                        </div>
+                        <div className='my-4'>
+                            <input type="email" placeholder='Your Email' className=' rounded-2xl p-4 w-full' />
+                        </div>
+                    </div>
+                    <div className='flex justify-center gap-3'>
+                        <div className='my-4'>
+                            <input type="text" placeholder='Service' className=' rounded-2xl p-4' />
+                        </div>
+                        <div className='my-4'>
+                            <input type="text" placeholder='Business' className=' rounded-2xl p-4' />
+                        </div>
+                    </div>
+                    <div className='my-4'>
+                        <input type="text" placeholder='Website' className=' rounded-2xl p-4 w-96' />
+                    </div>
+                    <textarea name="" id="" cols="30" placeholder='Description' className='rounded-2xl p-4 w-96'></textarea>
+                    <div>
+                        <button type="submit" className='btn my-5 bg-slate-500 border-none'>Send Us</button>
+                    </div>
+                </form>
+            </div>
 
         </div>
     );
