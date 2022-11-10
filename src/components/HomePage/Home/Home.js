@@ -104,7 +104,7 @@ const Home = () => {
                     {
                         homeReviews.map(homeReview =>
                             <div key={homeReview._id}>
-                                <div className="card w-96 bg-base-100 shadow-xl mx-auto">
+                                <div className="card w-96 bg-base-100 shadow-xl mx-auto mb-10">
                                     <div className="card-body">
                                         <div className="card-title">
                                             <img src={homeReview.reviewer_img} alt="" className=' w-3/12' />
