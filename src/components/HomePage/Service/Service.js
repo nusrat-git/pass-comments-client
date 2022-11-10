@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Service = ({ service }) => {
 
-    const {_id, name, img, price, business_name } = service;
+    const {_id, name, img, price, business_name, description } = service;
 
     return (
         <div className='mx-auto'>
@@ -16,7 +16,7 @@ const Service = ({ service }) => {
                     </h2>
                     <h2>Business Name: {business_name}</h2>
                     <h2>Price: {price}</h2>
-                    <p>If a dog chews shoes whose shoes does he choose?</p>
+                    <p>{description.substring(0, 100) + '...'}</p>
                     <div className="card-actions justify-end">
                         <div className="badge badge-outline p-3">Bakery</div>
                         <div className="badge badge-outline p-3">Services</div>
