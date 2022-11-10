@@ -5,12 +5,12 @@ const Blogs = () => {
     useTitle('Blogs');
     return (
         <div>
-            <h1 className='text-5xl font-bold mt-8'>Blogs</h1>
-            <div className='m-20 shadow-xl p-16 rounded-lg bg-zinc-200'>
+            <h1 className='text-5xl font-bold my-8'>Blogs</h1>
+            <div className='md:m-20 mb-10 shadow-xl p-5 md:p-16 rounded-lg bg-zinc-200'>
                 <h1 className='text-4xl font-semibold mb-9'>Difference between SQL and NoSQL?</h1>
                 <p>SQL databases defines and manipulates data based structured query language (SQL). Seeing from a side this language is extremely powerful. SQL is one of the most versatile and widely-used options available which makes it a safe choice especially for great complex queries. But from other side it can be restrictive. SQL requires you to use predefined schemas to determine the structure of your data before you work with it. Also all of your data must follow the same structure. This can require significant up-front preparation which means that a change in the structure would be both difficult and disruptive to your whole system. A NoSQL database has dynamic schema for unstructured data. Data is stored in many ways which means it can be document-oriented, column-oriented, graph-based or organized as a KeyValue store. This flexibility means that documents can be created without having defined structure first. Also each document can have its own unique structure. The syntax varies from database to database, and you can add fields as you go. </p>
             </div>
-            <div className='m-20 shadow-xl p-16 rounded-lg bg-zinc-200'>
+            <div className='md:m-20 mb-10 shadow-xl p-16 rounded-lg bg-zinc-200'>
                 <h1 className='text-4xl font-semibold mb-9'>What is JWT, and how does it work?</h1>
                 <p>JSON Web Token (JWT) is an open standard (RFC 7519) for securely transmitting information between parties as JSON object.
 
@@ -24,7 +24,7 @@ const Blogs = () => {
 
                 </p>
             </div>
-            <div className='m-20 shadow-xl p-16 rounded-lg bg-zinc-200'>
+            <div className='md:m-20 mb-10 shadow-xl p-16 rounded-lg bg-zinc-200'>
                 <h1 className='text-4xl font-semibold mb-9'>What is the difference between javascript and NodeJS?</h1>
                 <p>
                     JAVASCRIPT: <br />
@@ -34,7 +34,7 @@ const Blogs = () => {
                     NodeJS is a Javascript runtime environment.We can run Javascript outside the browser with the help of NodeJS.It is mostly used on the server-side.Nodejs does not have capability to add HTML tags.V8 is the Javascript engine inside of node.js that parses and runs Javascript.Nodejs is used in server-side development.
                 </p>
             </div>
-            <div className='m-20 shadow-xl p-16 rounded-lg bg-zinc-200'>
+            <div className='md:m-20 mb-10 shadow-xl p-16 rounded-lg bg-zinc-200'>
                 <h1 className='text-4xl font-semibold mb-9'>How does NodeJS handle multiple requests at the same time?</h1>
                 <p>NodeJS Web Server maintains a limited Thread Pool to provide services to client requests. Multiple clients make multiple requests to the NodeJS server. NodeJS receives these requests and places them into the EventQueue .
                     NodeJS server has an internal component referred to as the EventLoop which is an infinite loop that receives requests and processes them. This EventLoop is single threaded. In other words, EventLoop is the listener for the EventQueue.The listener(the event loop) processes the request and if it is able to process the request without needing any blocking IO operations, then the event loop would itself process the request and sends the response back to the client by itself.
