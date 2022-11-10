@@ -1,3 +1,19 @@
+# Webiste live link : https://pass-comments.web.app/
+
+## Website name : Pass Comments
+
+### Website functionality
+
+* Mobile responsive
+* Tablet responsive
+* Firebase Authentication
+* Single Page application
+* mongodb database 
+* user database collection
+* called api from mongodb
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
