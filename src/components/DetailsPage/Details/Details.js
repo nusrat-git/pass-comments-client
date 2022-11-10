@@ -32,7 +32,7 @@ const Details = () => {
 
     return (
         <div>
-            <div className="hero bg-zinc-100 my-20 p-20">
+            <div className="hero bg-zinc-100 my-20 md:p-20 ml-3 md:ml:3 rounded-lg">
                 <div className="hero-content flex-col lg:flex-row-reverse">
                     <img src={img} className="rounded-lg shadow-2xl" alt='' />
                     <div>
@@ -57,7 +57,7 @@ const Details = () => {
                     </div>
                 </div>
             </div>
-            <div className=' mx-40'>
+            <div className=' md:mx-40'>
                 <h1 className='text-3xl font-bold'>{reviews.length} Recent Reviews of {name}</h1>
                 <div className='grid grid-cols-1 md:grid-cols-3 gap-10 my-20'>
                     {

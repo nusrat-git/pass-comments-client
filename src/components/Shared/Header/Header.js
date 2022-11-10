@@ -41,10 +41,60 @@ const Header = () => {
             <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
               <li><Link to='/home'>Home</Link></li>
               <li><Link to='/services'>Services</Link></li>
+              <li className='text-lg font-semibold'>
+                {
+                  user?.uid ?
+                    <span className=' gap-8'>
+                      <Link to={`/myreviews/${user?.email}`}>My Reviews</Link>
+                    </span>
+                    :
+                    <Link to='/reviews'>Reviews</Link>
+                }
+              </li>
+              <li className='text-lg font-semibold'>
+                {
+                  user?.uid ?
+                    <Link to='/addservice'>Add Service</Link>
+                    :
+                    <Link>About</Link>
+                }
+              </li>
+              <li className='text-lg font-semibold'><Link to='/blogs'>Blogs</Link></li>
+              <div>
+                {
+                  user?.uid ?
+
+                    <div className='flex items-center justify-center gap-6'>
+                      <div>
+                        <div className="avatar online">
+                          <div className="w-16 rounded-full">
+                            <PhotoProvider>
+                              <PhotoView src={user?.photoURL}>
+                                <img src={user?.photoURL} alt='' />
+                              </PhotoView>
+                            </PhotoProvider>
+
+                          </div>
+                        </div>
+                      </div>
+                      <div>
+                        <Link className="btn btn-info">
+                          <button onClick={handleSignOut}>Sign Out</button>
+                        </Link>
+                      </div>
+
+                    </div>
+
+
+                    :
+                    <Link className="btn btn-info w-full" to='/signin'>Sign In</Link>
+
+                }
+              </div>
             </ul>
           </div>
           <Link className="btn btn-ghost" to='/home'>
-            <div className='flex items-center gap-4'>
+            <div className='flex flex-row-reverse md:flex items-center gap-4'>
               <img src={Logo} alt='' className=' w-12' />
               <p className=' font-bold text-2xl'>Pass Comments</p>
             </div>
@@ -75,7 +125,7 @@ const Header = () => {
             <li className='text-lg font-semibold'><Link to='/blogs'>Blogs</Link></li>
           </ul>
         </div>
-        <div className="navbar-end">
+        <div className="navbar-end hidden md:block text-end">
           <>
             {
               user?.uid ?

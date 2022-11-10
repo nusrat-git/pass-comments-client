@@ -32,7 +32,7 @@ const MyReviews = () => {
     }
 
     return (
-        <div className='m-20 px-16'>
+        <div className='md:m-20 md:px-16 my-10'>
             {
                 (myReviews.length === 0) ?
                     <div>

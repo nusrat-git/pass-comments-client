@@ -59,12 +59,12 @@ const Review = () => {
 
     return (
         <div>
-            <div className='m-20 flex justify-around'>
-                <div className=' -mr-44 shadow-lg h-full p-9 rounded-xl'>
-                    <img src={reviewImg} alt="" className='w-96 h-96' />
+            <div className='md:m-20 md:flex justify-around ml-3'>
+                <div className=' md:-mr-44 shadow-lg h-full p-4 md:p-9 rounded-xl mb-10'>
+                    <img src={reviewImg} alt="" className='md:w-96 md:h-96' />
                     <h1 className='text-2xl font-bold text-zinc-500 mb-9'>Leave a review about a service</h1>
                 </div>
-                <form className="w-full max-w-lg" onSubmit={sendReview}>
+                <form className="w-full md:max-w-lg" onSubmit={sendReview}>
                     <div className="flex flex-wrap -mx-3 mb-6">
                         <div className="w-full px-3">
                             <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-name">
@@ -105,7 +105,7 @@ const Review = () => {
                             <textarea className="textarea textarea-bordered w-full" placeholder="Service Description" id='description' required onBlur={(e) => setText(e.target.value)}></textarea>
                         </div>
                     </div>
-                    <button className='btn btn-info' type='submit'>Add Your Review</button>
+                    <button className='btn btn-info my-10 md:my-0' type='submit'>Add Your Review</button>
 
                 </form>
             </div>

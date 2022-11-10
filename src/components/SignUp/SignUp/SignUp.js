@@ -110,7 +110,7 @@ const SignUp = () => {
 
 
     return (
-        <div className='flex my-20 justify-center gap-10'>
+        <div className='md:flex my-20 justify-center gap-10'>
             <div>
                 <img src={signUpImg} alt="" />
             </div>

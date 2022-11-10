@@ -4,8 +4,8 @@ import Logo from '../../../logo.png';
 
 const Footer = () => {
     return (
-        <div>
-            <footer className="footer p-20 bg-base-200 text-base-content">
+        <div className='ml-6 md:ml-0'>
+            <footer className="footer md:p-20 p-5 bg-base-200 text-base-content">
                 <div>
                     <img src={Logo} alt='' className='w-36' />
                     <p>PASS COMMENTS<br />Providing genuine feedbacks</p>

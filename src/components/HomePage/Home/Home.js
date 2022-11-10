@@ -24,8 +24,8 @@ const Home = () => {
 
     return (
         <div>
-            <div className='flex items-center justify-center my-20 gap-20'>
-                <div className="carousel carousel-center max-w-md space-x-4 bg-neutral rounded-box">
+            <div className='md:flex items-center justify-center my-20 md:gap-20 gap-10 ml-5 md:ml-o'>
+                <div className="carousel carousel-center md:max-w-md space-x-4 bg-neutral rounded-box">
                     <div className="carousel-item">
                         <img src={img1} className="rounded-box" alt='' />
                     </div>
@@ -56,22 +56,22 @@ const Home = () => {
                         Slide to explore more of our services. <br /></p>
                 </div>
             </div>
-            <div className='grid grid-cols-3 md:p-8 m-28'>
+            <div className='grid md:grid-cols-3 md:p-8 md:m-28'>
                 {
                     services.map(service => <Service service={service} key={service._id}></Service>)
                 }
             </div>
             <div>
                 <Link to='/services'>
-                    <button className="btn btn-info mb-20">Load More</button>
+                    <button className="btn btn-info my-16 md:mb-20">Load More</button>
                 </Link>
             </div>
-            <div className='w-3/4 mx-auto rounded-lg m-10 bg-info p-10'>
+            <div className='md:w-3/4 mx-auto rounded-lg md:m-10 bg-info md:p-10 p-3 ml-6 md:ml-0'>
                 <h1 className='text-5xl font-semibold my-7'>Register</h1>
                 <p className='text-lg font-semibold my-5'>Get help from us to reach your service to customers <br />
                     and get genuine feedback on your services</p>
-                <form className='mx-auto'>
-                    <div className='flex justify-center gap-3'>
+                <form className='mx-auto w-full p-3'>
+                    <div className='md:flex justify-center gap-3'>
                         <div className='my-4'>
                             <input type="text" placeholder='Your Name' className=' rounded-2xl p-4 w-full' />
                         </div>
@@ -79,26 +79,26 @@ const Home = () => {
                             <input type="email" placeholder='Your Email' className=' rounded-2xl p-4 w-full' />
                         </div>
                     </div>
-                    <div className='flex justify-center gap-3'>
+                    <div className='md:flex justify-center gap-3'>
                         <div className='my-4'>
-                            <input type="text" placeholder='Service' className=' rounded-2xl p-4' />
+                            <input type="text" placeholder='Service' className=' rounded-2xl p-4 w-full' />
                         </div>
                         <div className='my-4'>
-                            <input type="text" placeholder='Business' className=' rounded-2xl p-4' />
+                            <input type="text" placeholder='Business' className=' rounded-2xl p-4 w-full'/>
                         </div>
                     </div>
                     <div className='my-4'>
-                        <input type="text" placeholder='Website' className=' rounded-2xl p-4 w-96' />
+                        <input type="text" placeholder='Website' className=' rounded-2xl p-4 md:w-96 w-full' />
                     </div>
-                    <textarea name="" id="" cols="30" placeholder='Description' className='rounded-2xl p-4 w-96'></textarea>
+                    <textarea name="" id="" cols="30" placeholder='Description' className='rounded-2xl p-4 md:w-96 w-full'></textarea>
                     <div>
                         <button type="submit" className='btn my-5 bg-slate-500 border-none'>Send Us</button>
                     </div>
                 </form>
             </div>
-            <div className=' mx-40'>
-                <h1 className='text-3xl font-bold'>Some of our recent reviews</h1>
-                <div className='grid grid-cols-1 md:grid-cols-3 gap-10 my-20'>
+            <div className=' md:mx-40 '>
+                <h1 className='text-3xl font-bold my-10'>Some of our recent reviews</h1>
+                <div className='grid grid-cols-1 md:grid-cols-3 md:gap-10 md:my-20'>
                     {
                         homeReviews.map(homeReview =>
                             <div key={homeReview._id}>
