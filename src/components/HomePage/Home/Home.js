@@ -9,9 +9,11 @@ import img7 from '../../../images/traditional-italian-cappuccino.jpg';
 import Banner from '../../../images/banner.png';
 import { Link, useLoaderData } from 'react-router-dom';
 import Service from '../Service/Service';
+import useTitle from '../../../title/Title';
 
 
 const Home = () => {
+    useTitle('Home')
 
     const services = useLoaderData();
     const [homeReviews, setHomeReviews] = useState([]);

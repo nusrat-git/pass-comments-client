@@ -2,9 +2,12 @@ import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import signUpImg from '../../../images/signup.png'
+import useTitle from '../../../title/Title';
 import { AuthContext } from '../../Shared/Context/AuthProvider/AuthProvider';
 
 const SignUp = () => {
+
+    useTitle('Sign Up')
 
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');

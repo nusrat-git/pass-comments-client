@@ -1,7 +1,9 @@
 import { useLoaderData } from 'react-router-dom';
+import useTitle from '../../../title/Title';
 import AllService from '../AllService/AllService';
 
 const Services = () => {
+    useTitle('Services');
 
     const allServices = useLoaderData();
 

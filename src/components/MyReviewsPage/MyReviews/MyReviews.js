@@ -5,11 +5,12 @@ import { MdDelete } from 'react-icons/md';
 import { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import useTitle from '../../../title/Title';
 
 const MyReviews = () => {
     const myReviews = useLoaderData();
     const [reviews, setReviews] = useState([]);
-
+    useTitle('My Reviews');
 
     const handleDelete = (id) => {
         const decision = window.confirm('Do you want to delete this review?')

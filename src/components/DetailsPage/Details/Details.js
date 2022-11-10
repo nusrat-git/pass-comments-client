@@ -2,9 +2,12 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import useTitle from '../../../title/Title';
 import { AuthContext } from '../../Shared/Context/AuthProvider/AuthProvider';
 
 const Details = () => {
+
+    useTitle('Details');
 
     const details = useLoaderData();
     const [reviews, setReviews] = useState([]);

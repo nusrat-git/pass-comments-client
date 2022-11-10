@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import useTitle from '../../../title/Title';
 
 const AddService = () => {
 
+    useTitle('Add Service');
+    
     const [business, setBusiness] = useState('');
     const [service, setService] = useState('');
     const [price, setPrice] = useState('');

@@ -4,8 +4,10 @@ import reviewImg from '../../../images/review.png';
 import { AuthContext } from '../../Shared/Context/AuthProvider/AuthProvider';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import useTitle from '../../../title/Title';
 
 const Review = () => {
+    useTitle('Add Review');
 
     const [review, setReview] = useState([]);
     const [text, setText] = useState('');
