@@ -8,7 +8,8 @@ const Services = () => {
     console.log(allServices.length);
 
     return (
-        <div>
+        <div className=' m-28'>
+            <h1 className='text-4xl font-semibold my-10'>{allServices.length} Services Available</h1>
             {
                 allServices.length ===0 ?
                     <div>

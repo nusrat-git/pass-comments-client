@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import img1 from '../../../images/chocolate-chip-muffin.jpg';
 import img2 from '../../../images/colorful-cupcakes.jpg';
 import img3 from '../../../images/chocolate-donuts.jpg';
@@ -14,6 +14,13 @@ import Service from '../Service/Service';
 const Home = () => {
 
     const services = useLoaderData();
+    const [homeReviews, setHomeReviews] = useState([]);
+
+    useEffect(() => {
+        fetch('http://localhost:5000/home/reviews')
+            .then(res => res.json())
+            .then(data => setHomeReviews(data));
+    }, [])
 
     return (
         <div>
@@ -49,14 +56,14 @@ const Home = () => {
                         Slide to explore more of our services. <br /></p>
                 </div>
             </div>
-            <div className='grid grid-cols-3 md:p-8'>
+            <div className='grid grid-cols-3 md:p-8 m-28'>
                 {
                     services.map(service => <Service service={service} key={service._id}></Service>)
                 }
             </div>
             <div>
                 <Link to='/services'>
-                    <button className="btn btn-info my-10">Load More</button>
+                    <button className="btn btn-info mb-20">Load More</button>
                 </Link>
             </div>
             <div className='w-3/4 mx-auto rounded-lg m-10 bg-info p-10'>
@@ -88,6 +95,40 @@ const Home = () => {
                         <button type="submit" className='btn my-5 bg-slate-500 border-none'>Send Us</button>
                     </div>
                 </form>
+            </div>
+            <div className=' mx-40'>
+                <h1 className='text-3xl font-bold'>Some of our recent reviews</h1>
+                <div className='grid grid-cols-1 md:grid-cols-3 gap-10 my-20'>
+                    {
+                        homeReviews.map(homeReview =>
+                            <div key={homeReview._id}>
+                                <div className="card w-96 bg-base-100 shadow-xl mx-auto">
+                                    <div className="card-body">
+                                        <div className="card-title">
+                                            <img src={homeReview.reviewer_img} alt="" className=' w-3/12' />
+                                            <h1>{homeReview.reviewer}</h1>
+                                        </div>
+                                        <div className='flex items-center justify-between'>
+
+                                        </div>
+                                        <p>{homeReview.text}</p>
+                                        <div className='flex items-center justify-between'>
+
+                                            <div className="card-actions justify-start my-4">
+                                                <div className="badge badge-outline p-3">Rating: {homeReview.rating}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        )
+                    }
+                </div>
+                <div>
+                    <Link to='/services'>
+                        <button className='btn btn-info mb-20'>See more</button>
+                    </Link>
+                </div>
             </div>
 
         </div>

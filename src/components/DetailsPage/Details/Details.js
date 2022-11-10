@@ -57,8 +57,8 @@ const Details = () => {
                     </div>
                 </div>
             </div>
-            <div>
-                <h1 className='text-3xl font-bold'>Reviews of {name}</h1>
+            <div className=' mx-40'>
+                <h1 className='text-3xl font-bold'>{reviews.length} Recent Reviews of {name}</h1>
                 <div className='grid grid-cols-1 md:grid-cols-3 gap-10 my-20'>
                     {
                         reviews.map(review =>
